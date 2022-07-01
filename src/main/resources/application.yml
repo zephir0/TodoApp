@@ -1,2 +1,12 @@
 server:
   port: 8081
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/todoapp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: xx33xx12
+    username: root
