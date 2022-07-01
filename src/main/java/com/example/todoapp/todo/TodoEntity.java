@@ -1,4 +1,4 @@
-package com.example.todoapp;
+package com.example.todoapp.todo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

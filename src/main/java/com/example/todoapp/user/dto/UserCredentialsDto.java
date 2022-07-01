@@ -1,4 +1,4 @@
-package com.example.todoapp.user;
+package com.example.todoapp.user.dto;
 
 import java.util.Set;
 

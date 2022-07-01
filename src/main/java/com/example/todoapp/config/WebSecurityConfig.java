@@ -14,7 +14,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.util.ArrayList;
 import java.util.List;
 
-@EnableWebSecurity
 @Configuration
 public class WebSecurityConfig {
 
