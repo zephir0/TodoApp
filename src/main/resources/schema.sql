@@ -1,7 +1,7 @@
 CREATE TABLE todoapp.application_user
 (
     id         BIGINT AUTO_INCREMENT PRIMARY KEY,
-    login VARCHAR(50) NOT NULL,
+    login VARCHAR(50) NOT NULL UNIQUE,
     password   VARCHAR(200) NOT NULL
 );
 

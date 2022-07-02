@@ -3,10 +3,12 @@ package com.example.todoapp.config;
 import com.example.todoapp.user.dto.UserCredentialsDto;
 import com.example.todoapp.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,11 +30,17 @@ public class CustomInMemoryUserDetailsManager implements UserDetailsService {
 
 
     private UserDetails createUserDetails(UserCredentialsDto credentialsDto) {
+        BCryptPasswordEncoder encoder = passwordEncoder();
         return User.builder()
                 .username(credentialsDto.getLogin())
-                .password(credentialsDto.getPassword())
+                .password(encoder.encode(credentialsDto.getPassword()))
                 .roles(credentialsDto.getRoles().toArray(String[]::new))
                 .build();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 }

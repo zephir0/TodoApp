@@ -1,7 +1,7 @@
 INSERT INTO todoapp.application_user (login, password)
 VALUES
     -- superadmin@example.com / hard
-    ('123', 'xx335xx12'),
+    ('Jan', '{bcrypt}$10$Ruu5GtmSVkfLeuGfz/wHUuzflCcMbwJHSBo/.Wui0EM0KIM52Gs2S'),
     -- john@example.com / dog.8
     ('4344', 'f5afa'),
     -- java_lover@example.com / javaiscool
