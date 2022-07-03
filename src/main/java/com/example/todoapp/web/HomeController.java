@@ -1,6 +1,6 @@
 package com.example.todoapp.web;
 
-import com.example.todoapp.message.MessageService;
+import com.example.todoapp.config.message.MessageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
