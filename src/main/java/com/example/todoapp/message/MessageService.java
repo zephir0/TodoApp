@@ -1,4 +1,4 @@
-package com.example.todoapp.config.message;
+package com.example.todoapp.message;
 
 import com.example.todoapp.user.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
