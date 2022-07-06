@@ -30,17 +30,11 @@ public class CustomInMemoryUserDetailsManager implements UserDetailsService {
 
 
     private UserDetails createUserDetails(UserCredentialsDto credentialsDto) {
-        BCryptPasswordEncoder encoder = passwordEncoder();
         return User.builder()
                 .username(credentialsDto.getLogin())
-                .password(encoder.encode(credentialsDto.getPassword()))
+                .password(credentialsDto.getPassword())
                 .roles(credentialsDto.getRoles().toArray(String[]::new))
                 .build();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
 }

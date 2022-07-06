@@ -5,6 +5,8 @@ import com.example.todoapp.user.UserRepository;
 import com.example.todoapp.user.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +14,11 @@ import org.springframework.stereotype.Service;
 public class RegistrationService {
     final private UserService userService;
     final private UserRepository userRepo;
+    private PasswordEncoder passwordEncoder;
 
-    final private PasswordEncoder passwordEncoder;
-
-    public RegistrationService(UserService userService, UserRepository userRepo, PasswordEncoder passwordEncoder) {
+    public RegistrationService(UserService userService, UserRepository userRepo) {
         this.userService = userService;
         this.userRepo = userRepo;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public void register(RegistrationData registrationData) {
@@ -32,11 +32,12 @@ public class RegistrationService {
         userRepo.save(user);
     }
 
-   /* public void encodePassword(User user, RegistrationData registrationData) {
-        user.setPassword(passwordEncoder.encode(registrationData.getPassword()));
-    }*/
-
     public boolean checkIfUserExist(String login) {
         return userService.findCredentialsByLogin(login).isPresent();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

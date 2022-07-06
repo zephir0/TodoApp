@@ -2,7 +2,6 @@ package com.example.todoapp.web;
 
 import com.example.todoapp.registration.RegistrationData;
 import com.example.todoapp.registration.RegistrationService;
-import com.example.todoapp.user.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +12,11 @@ import javax.validation.Valid;
 
 @Controller
 public class RegistrationController {
-    private RegistrationService registrationService;
+    final private RegistrationService registrationService;
+
+    public RegistrationController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
 
     @GetMapping("/register")
     public String register(Model model) {
