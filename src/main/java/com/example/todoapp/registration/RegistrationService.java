@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class RegistrationService {
     final private UserService userService;
     final private UserRepository userRepo;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public RegistrationService(UserService userService, UserRepository userRepo) {
@@ -27,7 +28,7 @@ public class RegistrationService {
         }
         User user = new User();
         user.setLogin(registrationData.getLogin());
-        String passwordHash = passwordEncoder.encode(registrationData.getPassword());
+        String passwordHash = (passwordEncoder.encode(registrationData.getPassword()));
         user.setPassword(passwordHash);
         userRepo.save(user);
     }
@@ -36,8 +37,8 @@ public class RegistrationService {
         return userService.findCredentialsByLogin(login).isPresent();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 }

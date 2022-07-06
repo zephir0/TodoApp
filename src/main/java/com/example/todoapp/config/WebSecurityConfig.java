@@ -13,6 +13,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
+                .mvcMatchers("/register")
+                .permitAll()
                 .antMatchers("/login", "/*.css", "/static/**")
                 .permitAll()
                 .anyRequest()
