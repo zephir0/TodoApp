@@ -10,6 +10,9 @@
 <div class="container">
     <div layout:fragment="content"></div>
     <div th:replace="fragments/navi-bar :: navi-bar"></div>
+    <div class="welcomeMessage">
+        Welcome: <span th:text="${#authentication.getName()}"></span>
+    </div>
     <div id="todo-list-add-main-container" class="todo-list-container">
         <h2>My To Do List</h2>
         <p>Add task to your list</p>

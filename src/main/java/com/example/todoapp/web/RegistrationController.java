@@ -37,7 +37,7 @@ public class RegistrationController {
             model.addAttribute("registrationData", registrationData);
             return "registration";
         }
-        return "home";
+        return "successfull-register";
     }
 
 

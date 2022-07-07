@@ -86,7 +86,31 @@ button {
     box-shadow: 0px 0px 0px 3px black;
 }
 
-.navi-bar{
+.registrationButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationButton p {
+    font-size: 18px;
+    color: white;
+}
+
+.registrationButton a {
+    width: 50%;
+    padding: 10px 18px;
+    font-size: 22px;
+    background: #1a3969;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #f4f4f4;
+}
+
+.navi-bar {
     background-color: #3a24f0;
     padding: 10px;
     text-align: center;
@@ -107,8 +131,7 @@ button {
     text-decoration: underline;
 }
 
-@media
-(prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
     .navi-bar html {
         scroll-behavior: smooth;
     }

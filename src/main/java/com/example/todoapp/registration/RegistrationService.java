@@ -36,9 +36,4 @@ public class RegistrationService {
     public boolean checkIfUserExist(String login) {
         return userService.findCredentialsByLogin(login).isPresent();
     }
-
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
 }
