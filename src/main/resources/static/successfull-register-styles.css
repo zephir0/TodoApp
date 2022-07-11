@@ -1,0 +1,14 @@
+.successfull-register-container {
+    background-color: #4b739b;
+    border-radius: 20px;
+}
+
+.successfull-register-container h2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.successfull-register-container p, a {
+    font-size: 18px;
+    text-align: center;
+}
