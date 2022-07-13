@@ -1,6 +1,6 @@
 package com.example.todoapp.registration;
+
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class RegistrationData implements Serializable {
@@ -8,6 +8,15 @@ public class RegistrationData implements Serializable {
     private String login;
     @NotEmpty(message = "Password need to be setted up.")
     private String password;
+    private String passwordConfirm;
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
 
     public String getLogin() {
         return login;
