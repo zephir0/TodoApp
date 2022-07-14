@@ -1,27 +1,38 @@
 package com.example.todoapp.todo;
 
+import com.example.todoapp.user.User;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "todo_list")
-public class TodoEntity {
+public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private LocalTime localTime;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-
-    public TodoEntity(Long id,
-                      String description,
-                      LocalTime localTime) {
-        this.id = id;
-        this.description = description;
-        this.localTime = localTime;
+    public User getUser() {
+        return user;
     }
 
-    public TodoEntity() {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Todo(Long id,
+                String description
+    ) {
+        this.id = id;
+        this.description = description;
+
+    }
+
+    public Todo() {
 
     }
 
@@ -41,18 +52,10 @@ public class TodoEntity {
         this.description = description;
     }
 
-    public LocalTime getLocalTime() {
-        return localTime;
-    }
-
-    public void setLocalTime(LocalTime localTime) {
-        this.localTime = localTime;
-    }
 
     @Override
     public String toString() {
         return id +
-                ", " + description +
-                ", " + localTime;
+                ", " + description;
     }
 }

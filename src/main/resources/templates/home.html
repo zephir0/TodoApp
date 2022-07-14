@@ -13,15 +13,17 @@
     <div class="welcomeMessage">
         <p th:text="${welcomeMessage}"></p>
     </div>
-    <div id="todo-list-add-main-container" class="todo-list-container">
+    <div id="todo-list-add-main-container" class="todo-list-container" th:object="${todoDto}">
+        <form class="task-add" th:action="@{/add}"  method="post">
         <h2>My To Do List</h2>
         <p>Add task to your list</p>
         <div>
-            <input type="text" id="myInput" placeholder="Title...">
+            <input type="text" th:field="*{description}" id="myInput" placeholder="Title...">
         </div>
         <div>
-            <button class="addBtn">Dodaj</button>
+            <button type="submit" class="addBtn">Dodaj</button>
         </div>
+        </form>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>

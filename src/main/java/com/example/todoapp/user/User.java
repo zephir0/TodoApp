@@ -1,6 +1,9 @@
 package com.example.todoapp.user;
 
+import com.example.todoapp.todo.Todo;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +24,16 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<UserRole> roles = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private Collection<Todo> todoCollections;
+
+    public Collection<Todo> getTodoCollections() {
+        return todoCollections;
+    }
+
+    public void setTodoCollections(Collection<Todo> todoCollections) {
+        this.todoCollections = todoCollections;
+    }
 
     public Set<UserRole> getRoles() {
         return roles;
