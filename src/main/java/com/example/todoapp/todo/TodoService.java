@@ -2,7 +2,6 @@ package com.example.todoapp.todo;
 
 import com.example.todoapp.user.User;
 import com.example.todoapp.user.UserRepository;
-import com.example.todoapp.user.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +26,17 @@ public class TodoService {
         Todo todo = new Todo();
         todo.setDescription(todoDto.getDescription());
         todo.setUser(findUserId());
-        showAllTodos();
+        showAllTodosDescriptions();
         todoRepository.save(todo);
     }
 
-    public void showAllTodos() {
+    public Collection<Todo> showAllTodosDescriptions() {
         User activeUser = findUserId();
-        Collection<Todo> todoCollections = activeUser.getTodoCollections();
-        todoCollections.forEach(System.out::println);
+        return activeUser.getTodoCollections();
+//        return todoCollections
+//                .stream()
+//                .map(Todo::getDescription)
+//                .collect(Collectors.toList());
     }
 
     String getUsername() {

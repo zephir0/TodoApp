@@ -25,6 +25,15 @@
         </div>
         </form>
     </div>
+    <div class="todo_user_list">
+        <table>
+            <tr th:each="task : ${todoList}">
+                <td><span th:text="${task.description}"> </span></td>
+            </tr>
+        </table>
+
+
+    </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>
 </body>
