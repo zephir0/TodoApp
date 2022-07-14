@@ -6,6 +6,7 @@ import com.example.todoapp.user.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -26,11 +27,14 @@ public class TodoService {
         Todo todo = new Todo();
         todo.setDescription(todoDto.getDescription());
         todo.setUser(findUserId());
+        showAllTodos();
         todoRepository.save(todo);
     }
 
     public void showAllTodos() {
-
+        User activeUser = findUserId();
+        Collection<Todo> todoCollections = activeUser.getTodoCollections();
+        todoCollections.forEach(System.out::println);
     }
 
     String getUsername() {
