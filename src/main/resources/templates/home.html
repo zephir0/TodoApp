@@ -14,25 +14,27 @@
         <p th:text="${welcomeMessage}"></p>
     </div>
     <div id="todo-list-add-main-container" class="todo-list-container" th:object="${todoDto}">
-        <form class="task-add" th:action="@{/add}"  method="post">
-        <h2>My To Do List</h2>
-        <p>Add task to your list</p>
-        <div>
-            <input type="text" th:field="*{description}" id="myInput" placeholder="Title...">
-        </div>
-        <div>
-            <button type="submit" class="addBtn">Dodaj</button>
-        </div>
+        <form class="task-add" th:action="@{/add}" method="post">
+            <h2>My To Do List</h2>
+            <p>Add task to your list</p>
+            <div>
+                <input type="text" th:field="*{description}" id="myInput" placeholder="Title...">
+            </div>
+            <div>
+                <button type="submit" class="addBtn">Dodaj</button>
+            </div>
         </form>
     </div>
-    <div class="todo_user_list">
-        <table>
-            <tr th:each="task : ${todoList}">
-                <td><span th:text="${task.description}"> </span></td>
-            </tr>
-        </table>
 
+    <div class="todo_list">
+        <h2>Twoja lista zadan: </h2>
+            <div class ="each-task" th:each="task : ${todoList}">
+                <span th:text="${task.description}"> </span>
+                <form th:action="@{/delete/{id}(id=${task.id})}" th:method="delete">
+                    <button type="submit" class="removeTaskBtn">Zakończ</button>
+                </form>
 
+            </div>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>

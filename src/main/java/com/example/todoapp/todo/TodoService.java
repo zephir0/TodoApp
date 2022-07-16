@@ -2,6 +2,7 @@ package com.example.todoapp.todo;
 
 import com.example.todoapp.user.User;
 import com.example.todoapp.user.UserRepository;
+import com.example.todoapp.user.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +12,27 @@ import java.util.Optional;
 @Service
 public class TodoService {
     private final TodoRepository todoRepository;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     public TodoService(TodoRepository todoRepository,
 
-                       UserRepository userRepository) {
+                       UserService userService) {
         this.todoRepository = todoRepository;
 
-        this.userRepository = userRepository;
+        this.userService = userService;
     }
 
 
     public void addTodoToList(TodoDto todoDto) {
         Todo todo = new Todo();
         todo.setDescription(todoDto.getDescription());
-        todo.setUser(findUserId());
+        todo.setUser(userService.findUserId());
         showAllTodosDescriptions();
         todoRepository.save(todo);
     }
 
     public Collection<Todo> showAllTodosDescriptions() {
-        User activeUser = findUserId();
+        User activeUser = userService.findUserId();
         return activeUser.getTodoCollections();
 //        return todoCollections
 //                .stream()
@@ -39,13 +40,4 @@ public class TodoService {
 //                .collect(Collectors.toList());
     }
 
-    String getUsername() {
-        return SecurityContextHolder.getContext().getAuthentication().getName();
-    }
-
-
-    User findUserId() {
-        Optional<User> byLogin = userRepository.findByLogin(getUsername());
-        return byLogin.get();
-    }
 }
