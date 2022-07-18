@@ -10,9 +10,11 @@
 <div class="container">
     <div layout:fragment="content"></div>
     <div th:replace="fragments/navi-bar :: navi-bar"></div>
+
     <div class="welcomeMessage">
         <p th:text="${welcomeMessage}"></p>
     </div>
+
     <div id="todo-list-add-main-container" class="todo-list-container" th:object="${todoDto}">
         <form class="task-add" th:action="@{/add}" method="post">
             <h2>My To Do List</h2>
@@ -36,7 +38,9 @@
 
             </div>
     </div>
+
     <div th:replace="fragments/footer :: footer"></div>
+
 </div>
 </body>
 </html>

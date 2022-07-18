@@ -16,7 +16,19 @@ public class MyAccountController {
     }
 
     @GetMapping("/myaccount")
-    String getMyAccount(Model model) {
+    String myAccount() {
+        return "myaccount";
+    }
+
+    @GetMapping("/myaccount/details")
+    String accountDetails(Model model) {
+        String accountDetailsMessage = accountService.accountDetailsMessage();
+        model.addAttribute("accountDetailsMessage", accountDetailsMessage);
+        return "myaccount";
+    }
+
+    @GetMapping("/myaccount/password")
+    String changePassword(Model model) {
         String accountDetailsMessage = accountService.accountDetailsMessage();
         model.addAttribute("accountDetailsMessage", accountDetailsMessage);
         return "myaccount";

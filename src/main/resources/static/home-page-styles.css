@@ -1,60 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
 }
 
-/* Remove margins and padding from the list */
-ul {
-    margin: 0;
-    padding: 0;
-}
+/*!* Remove margins and padding from the list *!*/
+/*ul {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 
-/* Style the list items */
-ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
+/*!* Style the list items *!*/
+/*ul li {*/
+/*    cursor: pointer;*/
+/*    position: relative;*/
+/*    padding: 12px 8px 12px 40px;*/
+/*    background: #eee;*/
+/*    font-size: 18px;*/
+/*    transition: 0.2s;*/
 
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+/*    !* make the list items unselectable *!*/
+/*    -webkit-user-select: none;*/
+/*    -moz-user-select: none;*/
+/*    -ms-user-select: none;*/
+/*    user-select: none;*/
+/*}*/
 
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
-    background: #f9f9f9;
-}
+/*!* Set all odd list items to a different color (zebra-stripes) *!*/
+/*ul li:nth-child(odd) {*/
+/*    background: #175fa4;*/
+/*}*/
 
-/* Darker background-color on hover */
-ul li:hover {
-    background: #ddd;
-}
+/*!* Darker background-color on hover *!*/
+/*ul li:hover {*/
+/*    background: #ddd;*/
+/*}*/
 
-/* When clicked on, add a background color and strike out text */
-ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-}
+/*!* When clicked on, add a background color and strike out text *!*/
+/*ul li.checked {*/
+/*    background: #888;*/
+/*    color: #fff;*/
+/*    text-decoration: line-through;*/
+/*}*/
 
-/* Add a "checked" mark when clicked on */
-ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-}
+/*!* Add a "checked" mark when clicked on *!*/
+/*ul li.checked::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    border-color: #fff;*/
+/*    border-style: solid;*/
+/*    border-width: 0 2px 2px 0;*/
+/*    top: 10px;*/
+/*    left: 16px;*/
+/*    transform: rotate(45deg);*/
+/*    height: 15px;*/
+/*    width: 7px;*/
+/*}*/
 
 /* Style the close button */
 .close {
@@ -169,7 +170,7 @@ p {
     background-color: #4b739b;
     padding: 10px;
     text-align: center;
-    width: 60%;
+    width: 50%;
     border-radius: 20px;
     margin: auto auto 20px;
     /* Pay special attention here! */
@@ -192,4 +193,98 @@ p {
     .navi-bar html {
         scroll-behavior: smooth;
     }
+}
+
+
+/*SIDE BAR VVV*/
+
+.side-bar {
+    background-color: #7bacde;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 100px;
+    margin-left: 5px;
+    width: 270px;
+    height: 600px;
+    padding: 20px 0;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.side-bar .profile {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.side-bar .profile img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.side-bar .profile h3 {
+    color: #ffffff;
+    margin: 10px 0 5px;
+}
+
+.side-bar .profile p {
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.side-bar .menu-list-sidebar li {
+    list-style-type: none;
+}
+
+.side-bar .menu-list-sidebar ul {
+    display: initial;
+}
+
+.side-bar .menu-list-sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #072233;
+    color: rgb(241, 237, 237);
+    font-size: 20px;
+    position: relative;
+    text-decoration: none;
+}
+
+.side-bar .menu-list-sidebar ul li a .icon {
+    color: #e3e3e3;
+    width: 30px;
+    display: inline-block;
+}
+
+.side-bar .menu-list-sidebar ul li a:hover,
+.side-bar .menu-list-sidebar ul li a.active {
+    color: #0c7db1;
+
+    background: white;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.side-bar .menu-list-sidebar ul li a:hover .icon,
+.side-bar .menu-list-sidebar ul li a.active .icon {
+    color: #0c7db1;
+}
+
+.side-bar .menu-list-sidebar ul li a:hover:before,
+.side-bar .menu-list-sidebar ul li a.active:before {
+    display: block;
+}
+
+.accountDetails {
+    float: right;
+    margin-right: 10px;
+    width: 80%;
+    border: solid 1px;
+    min-height: 600px;
+    display: table-cell;
+    border-radius: 20px;
+    background-color: #7bacde;
 }

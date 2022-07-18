@@ -10,11 +10,12 @@
 <div class="container">
     <div layout:fragment="content"></div>
     <div th:replace="fragments/navi-bar :: navi-bar"></div>
-<div>
-    <p></p>
-    <p th:text="${accountDetailsMessage}"></p>
+    <div th:replace="fragments/side-bar :: side-bar"></div>
+<div class="accountDetails">
+ <p th:text="${accountDetailsMessage}"></p>
 </div>
+
 </div>
-<div th:replace="fragments/footer :: footer"></div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
 </body>
 </html>
