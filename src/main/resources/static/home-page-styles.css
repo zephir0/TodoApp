@@ -200,12 +200,11 @@ p {
 
 .side-bar {
     background-color: #7bacde;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 100px;
-    margin-left: 5px;
-    width: 270px;
+    border: solid 1px;
+    width: auto;
+    float: left;
+    min-height: 500px;
+    display: table-cell;
     height: 600px;
     padding: 20px 0;
     border-radius: 20px;
@@ -279,7 +278,7 @@ p {
 }
 
 .accountDetails {
-    float: right;
+    float: left;
     margin-right: 10px;
     width: 80%;
     border: solid 1px;
