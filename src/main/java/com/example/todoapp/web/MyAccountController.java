@@ -1,11 +1,15 @@
 package com.example.todoapp.web;
 
 import com.example.todoapp.account.AccountService;
+import com.example.todoapp.exceptions.WrongOldPasswordException;
 import com.example.todoapp.user.User;
 import com.example.todoapp.user.UserService;
+import com.example.todoapp.user.dto.UserCredentialsDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MyAccountController {
@@ -22,15 +26,31 @@ public class MyAccountController {
 
     @GetMapping("/myaccount/details")
     String accountDetails(Model model) {
-        String accountDetailsMessage = accountService.accountDetailsMessage();
-        model.addAttribute("accountDetailsMessage", accountDetailsMessage);
-        return "myaccount";
+        String loginName = accountService.getLoginName();
+        String passwordHash = accountService.getPasswordHash();
+        model.addAttribute("loginName", loginName);
+        model.addAttribute("passwordHash", passwordHash);
+        return "account-details-page";
     }
 
     @GetMapping("/myaccount/password")
-    String changePassword(Model model) {
-        String accountDetailsMessage = accountService.accountDetailsMessage();
-        model.addAttribute("accountDetailsMessage", accountDetailsMessage);
-        return "myaccount";
+    String getMyAccountPasswordPage(Model model,
+                                    UserCredentialsDto userCredentialsDto) {
+        model.addAttribute("userCredentialsDto", userCredentialsDto);
+        return "password-change-page";
+    }
+
+    @PostMapping("/myaccount/password")
+    String changePassword(Model model,
+                          UserCredentialsDto userCredentialsDto, BindingResult bindingResult) {
+        try{
+            accountService.changePassword(userCredentialsDto);
+        } catch (WrongOldPasswordException e){
+//            bindingResult.rejectValue("wrongPassword", "password.wrong", "Wrong password");
+            model.addAttribute("userCredentialsDto", userCredentialsDto);
+            return "password-change-page";
+        }
+        model.addAttribute("userCredentialsDto", userCredentialsDto);
+        return "password-change-page";
     }
 }

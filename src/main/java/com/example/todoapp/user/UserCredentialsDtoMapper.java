@@ -11,6 +11,6 @@ public class UserCredentialsDtoMapper {
         String login = user.getLogin();
         String password = user.getPassword();
         Set<String> roles = user.getRoles().stream().map(UserRole::getName).collect(Collectors.toSet());
-        return new UserCredentialsDto(login, password, roles);
+        return new UserCredentialsDto(login, password, password, password, roles);
     }
 }

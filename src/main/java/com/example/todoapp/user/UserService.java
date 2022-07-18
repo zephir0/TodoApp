@@ -27,7 +27,7 @@ public class UserService {
     }
 
 
-    public User findUserId() {
+    public User findUser() {
         Optional<User> byLogin = userRepository.findByLogin(getUsername());
         return byLogin.get();
     }

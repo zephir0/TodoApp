@@ -280,10 +280,49 @@ p {
 .accountDetails {
     float: left;
     margin-right: 10px;
+    margin-left: 20px;
     width: 80%;
     border: solid 1px;
     min-height: 600px;
     display: table-cell;
     border-radius: 20px;
     background-color: #7bacde;
+}
+
+.accountDetails .loginDetails {
+    background-color: #b3d3d3;
+    border-radius: 20px;
+    width: 40%;
+    word-break: break-word;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+}
+
+.accountDetails p {
+    font-size: 25px;
+    text-align: center;
+}
+
+.accountDetails h2 {
+    font-size: 35px;
+    text-align: center;
+    color: white;
+}
+
+.passwordChangingContainer {
+    float: left;
+    margin-right: 10px;
+    margin-left: 20px;
+    width: 80%;
+    border: solid 1px;
+    min-height: 600px;
+    display: table-cell;
+    border-radius: 20px;
+    background-color: #7bacde;
+}
+
+.passwordChangingContainer .passwordContainer {
+    font-size: 20px;
 }

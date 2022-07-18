@@ -1,13 +1,10 @@
 package com.example.todoapp.todo;
 
 import com.example.todoapp.user.User;
-import com.example.todoapp.user.UserRepository;
 import com.example.todoapp.user.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -26,13 +23,13 @@ public class TodoService {
     public void addTodoToList(TodoDto todoDto) {
         Todo todo = new Todo();
         todo.setDescription(todoDto.getDescription());
-        todo.setUser(userService.findUserId());
+        todo.setUser(userService.findUser());
         showAllTodosDescriptions();
         todoRepository.save(todo);
     }
 
     public Collection<Todo> showAllTodosDescriptions() {
-        User activeUser = userService.findUserId();
+        User activeUser = userService.findUser();
         return activeUser.getTodoCollections();
 //        return todoCollections
 //                .stream()
