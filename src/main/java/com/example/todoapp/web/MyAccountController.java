@@ -42,11 +42,16 @@ public class MyAccountController {
 
     @PostMapping("/myaccount/password")
     String changePassword(Model model,
-                          UserCredentialsDto userCredentialsDto, BindingResult bindingResult) {
-        try{
+                          UserCredentialsDto userCredentialsDto,
+                          BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("userCredentialsDto", userCredentialsDto);
+            return "registration";
+        }
+        try {
             accountService.changePassword(userCredentialsDto);
-        } catch (WrongOldPasswordException e){
-//            bindingResult.rejectValue("wrongPassword", "password.wrong", "Wrong password");
+        } catch (WrongOldPasswordException e) {
+            bindingResult.rejectValue("password", "password.wrong", "Wrong password");
             model.addAttribute("userCredentialsDto", userCredentialsDto);
             return "password-change-page";
         }

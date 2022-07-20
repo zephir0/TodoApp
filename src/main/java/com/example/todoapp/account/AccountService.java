@@ -35,12 +35,9 @@ public class AccountService {
 
     public void changePassword(UserCredentialsDto userCredentialsDto) {
         String activeUserPassword = userService.findUser().getPassword();
-        if (activeUserPassword
-                .equals(userCredentialsDto.getPassword())
-                && userCredentialsDto.getNewPassword()
-                .equals(userCredentialsDto.getConfirmPassword()))
-        {
-            //DOSOMETHING
+        if (passwordEncoder.matches(userCredentialsDto.getPassword(), activeUserPassword)
+                && userCredentialsDto.getNewPassword().equals(userCredentialsDto.getConfirmPassword())) {
+
             String newPassword = userCredentialsDto.getNewPassword();
             User user = userService.findUser();
             user.setPassword(passwordEncoder.encode(newPassword));
