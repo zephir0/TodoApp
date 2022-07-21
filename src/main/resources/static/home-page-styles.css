@@ -315,14 +315,61 @@ p {
     float: left;
     margin-right: 10px;
     margin-left: 20px;
+    display: flex;
     width: 80%;
     border: solid 1px;
     min-height: 600px;
-    display: table-cell;
     border-radius: 20px;
     background-color: #7bacde;
+    justify-content: center;
+}
+
+.passwordChangingContainer h2 {
+    color: white;
 }
 
 .passwordChangingContainer .passwordContainer {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.passwordChangingContainer .passwordContainer input {
+    border-radius: 10px;
+    text-align: center;
+}
+
+.passwordChangingContainer button {
+    padding: 10px;
+    width: 150px;
+    background-color: #2083e9;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.passwordChangingContainer button:hover {
+    background-color: #05519f;
+}
+
+.passwordChangingContainer .password-error p {
     font-size: 20px;
+    text-align: center;
+    width: 60%;
+    display: block;
+    background-color: red;
+    border: 2px solid red;
+    padding: 5px;
+    margin: auto auto 50px;
+    border-radius: 20px;
+    font-weight: bold;
 }
