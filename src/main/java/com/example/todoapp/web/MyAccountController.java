@@ -56,6 +56,7 @@ public class MyAccountController {
             return "password-change-page";
         }
         model.addAttribute("userCredentialsDto", userCredentialsDto);
+        model.addAttribute("successMsg", "Password successfully changed");
         return "password-change-page";
     }
 }

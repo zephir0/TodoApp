@@ -341,7 +341,13 @@ p {
 .passwordChangingContainer .passwordContainer input {
     border-radius: 10px;
     text-align: center;
+    padding-bottom: 5px;
 }
+
+.passwordChangingContainer .passwordContainer label{
+    margin-bottom: 10px;
+}
+
 
 .passwordChangingContainer button {
     padding: 10px;
@@ -368,6 +374,20 @@ p {
     display: block;
     background-color: red;
     border: 2px solid red;
+    padding: 5px;
+    margin: auto auto 50px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+.passwordChangingContainer .password-successfully-changed p {
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    display: block;
+    background-color: green;
+    border: 2px solid green;
     padding: 5px;
     margin: auto auto 50px;
     border-radius: 20px;
