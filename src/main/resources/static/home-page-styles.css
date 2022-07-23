@@ -277,7 +277,7 @@ p {
     display: block;
 }
 
-.accountDetails {
+.container-child {
     float: left;
     margin-right: 10px;
     margin-left: 20px;
@@ -289,7 +289,8 @@ p {
     background-color: #7bacde;
 }
 
-.accountDetails .loginDetails {
+
+.container-child .loginDetails {
     background-color: #b3d3d3;
     border-radius: 20px;
     width: 40%;
@@ -300,35 +301,20 @@ p {
     padding: 2px;
 }
 
-.accountDetails p {
+.container-child p {
     font-size: 25px;
     text-align: center;
 }
 
-.accountDetails h2 {
+.container-child h2 {
     font-size: 35px;
     text-align: center;
     color: white;
+    margin-top: 50px;
 }
 
-.passwordChangingContainer {
-    float: left;
-    margin-right: 10px;
-    margin-left: 20px;
-    display: flex;
-    width: 80%;
-    border: solid 1px;
-    min-height: 600px;
-    border-radius: 20px;
-    background-color: #7bacde;
-    justify-content: center;
-}
 
-.passwordChangingContainer h2 {
-    color: white;
-}
-
-.passwordChangingContainer .passwordContainer {
+.container-child .passwordContainer {
     font-size: 22px;
     display: flex;
     flex-direction: column;
@@ -338,18 +324,18 @@ p {
     margin-bottom: 30px;
 }
 
-.passwordChangingContainer .passwordContainer input {
+.container-child .passwordContainer input {
     border-radius: 10px;
     text-align: center;
     padding-bottom: 5px;
 }
 
-.passwordChangingContainer .passwordContainer label{
+.container-child .passwordContainer label {
     margin-bottom: 10px;
 }
 
 
-.passwordChangingContainer button {
+.container-child button {
     padding: 10px;
     width: 150px;
     background-color: #2083e9;
@@ -363,11 +349,11 @@ p {
     border-radius: 15px;
 }
 
-.passwordChangingContainer button:hover {
+.container-child button:hover {
     background-color: #05519f;
 }
 
-.passwordChangingContainer .password-error p {
+.container-child .password-error p {
     font-size: 20px;
     text-align: center;
     width: 60%;
@@ -381,7 +367,7 @@ p {
 }
 
 
-.passwordChangingContainer .password-successfully-changed p {
+.container-child .password-successfully-changed p {
     font-size: 20px;
     text-align: center;
     width: 60%;
@@ -392,4 +378,18 @@ p {
     margin: auto auto 50px;
     border-radius: 20px;
     font-weight: bold;
+}
+
+.container-child a{
+    background-color: greenyellow;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 40px;
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }

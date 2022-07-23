@@ -1,6 +1,7 @@
 package com.example.todoapp.web;
 
 import com.example.todoapp.account.AccountService;
+import com.example.todoapp.exceptions.CannotDeleteAccountExcepetion;
 import com.example.todoapp.exceptions.WrongOldPasswordException;
 import com.example.todoapp.user.User;
 import com.example.todoapp.user.UserService;
@@ -20,7 +21,7 @@ public class MyAccountController {
     }
 
     @GetMapping("/myaccount")
-    String myAccount() {
+    String getMyAccountDetails() {
         return "myaccount";
     }
 
@@ -58,5 +59,20 @@ public class MyAccountController {
         model.addAttribute("userCredentialsDto", userCredentialsDto);
         model.addAttribute("successMsg", "Password successfully changed");
         return "password-change-page";
+    }
+
+    @GetMapping("myaccount/deleteaccount")
+    String getDeleteAccountPage() {
+        return "delete-account-page";
+    }
+
+    @PostMapping("/myaccount/deleteaccount")
+    String deleteAccount() {
+        try {
+            accountService.accountDelete();
+        } catch (CannotDeleteAccountExcepetion e) {
+            throw new CannotDeleteAccountExcepetion("Cannot delete account");
+        }
+        return "redirect:/logout";
     }
 }

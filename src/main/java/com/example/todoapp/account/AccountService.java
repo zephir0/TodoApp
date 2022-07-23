@@ -44,4 +44,9 @@ public class AccountService {
             userRepository.save(user);
         } else throw new WrongOldPasswordException("Wrong old password, or passwords doesnt match");
     }
+
+    public void accountDelete() {
+        User user = userService.findUser();
+        userRepository.delete(user);
+    }
 }
