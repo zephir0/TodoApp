@@ -1,6 +1,7 @@
 package com.example.todoapp.account;
 
 import com.example.todoapp.exceptions.WrongOldPasswordException;
+import com.example.todoapp.todo.TodoRepository;
 import com.example.todoapp.user.User;
 import com.example.todoapp.user.UserRepository;
 import com.example.todoapp.user.UserService;
@@ -9,44 +10,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class AccountService {
     private final UserService userService;
     private final UserRepository userRepository;
+    private final TodoRepository todoRepository;
+
+    public AccountService(UserService userService,
+                          UserRepository userRepository,
+                          TodoRepository todoRepository,
+                          PasswordEncoder passwordEncoder) {
+        this.userService = userService;
+        this.userRepository = userRepository;
+        this.todoRepository = todoRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public AccountService(UserService userService,
-                          UserRepository userRepository) {
-        this.userService = userService;
-        this.userRepository = userRepository;
+
+    public String getActiveUserLogin() {
+        return userService.getLoggedUserName();
     }
 
-
-    public String getLoginName() {
-        User loggedUser = userService.findUser();
-        return loggedUser.getLogin();
-    }
-
-    public String getPasswordHash() {
-        User loggedUser = userService.findUser();
+    public String getActiveUserPasswordHash() {
+        User loggedUser = userService.getLoggedUser();
         return loggedUser.getPassword();
     }
 
     public void changePassword(UserCredentialsDto userCredentialsDto) {
-        String activeUserPassword = userService.findUser().getPassword();
+        String activeUserPassword = userService.getLoggedUser().getPassword();
         if (passwordEncoder.matches(userCredentialsDto.getPassword(), activeUserPassword)
                 && userCredentialsDto.getNewPassword().equals(userCredentialsDto.getConfirmPassword())) {
 
             String newPassword = userCredentialsDto.getNewPassword();
-            User user = userService.findUser();
+            User user = userService.getLoggedUser();
             user.setPassword(passwordEncoder.encode(newPassword));
             userRepository.save(user);
         } else throw new WrongOldPasswordException("Wrong old password, or passwords doesnt match");
     }
 
-    public void accountDelete() {
-        User user = userService.findUser();
+    @Transactional
+    public void deleteAccount() {
+        User user = userService.getLoggedUser();
+        todoRepository.deleteTodosByUserId(user.getId());
         userRepository.delete(user);
     }
 }

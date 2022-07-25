@@ -20,21 +20,15 @@ public class TodoService {
     }
 
 
-    public void addTodoToList(TodoDto todoDto) {
+    public void addTaskToList(TodoDto todoDto) {
         Todo todo = new Todo();
         todo.setDescription(todoDto.getDescription());
-        todo.setUser(userService.findUser());
-        showAllTodosDescriptions();
+        todo.setUser(userService.getLoggedUser());
         todoRepository.save(todo);
     }
 
-    public Collection<Todo> showAllTodosDescriptions() {
-        User activeUser = userService.findUser();
-        return activeUser.getTodoCollections();
-//        return todoCollections
-//                .stream()
-//                .map(Todo::getDescription)
-//                .collect(Collectors.toList());
+    public Collection<Todo> showAllTasks() {
+        return userService.getLoggedUser().getTodoCollections();
     }
 
 }

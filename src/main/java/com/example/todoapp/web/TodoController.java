@@ -45,7 +45,7 @@ public class TodoController {
             return "home";
         }
         try {
-            todoService.addTodoToList(todoDto);
+            todoService.addTaskToList(todoDto);
         } catch (RuntimeException e) {
             model.addAttribute("todoDto", todoDto);
             return "home";

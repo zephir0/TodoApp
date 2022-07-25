@@ -3,8 +3,6 @@ package com.example.todoapp.web;
 import com.example.todoapp.account.AccountService;
 import com.example.todoapp.exceptions.CannotDeleteAccountExcepetion;
 import com.example.todoapp.exceptions.WrongOldPasswordException;
-import com.example.todoapp.user.User;
-import com.example.todoapp.user.UserService;
 import com.example.todoapp.user.dto.UserCredentialsDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MyAccountController {
     private final AccountService accountService;
+
 
     public MyAccountController(AccountService accountService) {
         this.accountService = accountService;
@@ -27,8 +26,8 @@ public class MyAccountController {
 
     @GetMapping("/myaccount/details")
     String accountDetails(Model model) {
-        String loginName = accountService.getLoginName();
-        String passwordHash = accountService.getPasswordHash();
+        String loginName = accountService.getActiveUserLogin();
+        String passwordHash = accountService.getActiveUserPasswordHash();
         model.addAttribute("loginName", loginName);
         model.addAttribute("passwordHash", passwordHash);
         return "account-details-page";
@@ -69,10 +68,12 @@ public class MyAccountController {
     @PostMapping("/myaccount/deleteaccount")
     String deleteAccount() {
         try {
-            accountService.accountDelete();
+            accountService.deleteAccount();
         } catch (CannotDeleteAccountExcepetion e) {
             throw new CannotDeleteAccountExcepetion("Cannot delete account");
         }
         return "redirect:/logout";
     }
 }
+
+

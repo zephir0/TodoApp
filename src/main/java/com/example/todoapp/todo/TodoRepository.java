@@ -7,4 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
+    void deleteTodosByUserId(Long id);
 }

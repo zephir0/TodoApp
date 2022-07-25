@@ -22,13 +22,13 @@ public class UserService {
                 .map(UserCredentialsDtoMapper::map);
     }
 
-    public String getUsername() {
+    public String getLoggedUserName() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
 
-    public User findUser() {
-        Optional<User> byLogin = userRepository.findByLogin(getUsername());
+    public User getLoggedUser() {
+        Optional<User> byLogin = userRepository.findByLogin(getLoggedUserName());
         return byLogin.get();
     }
 }

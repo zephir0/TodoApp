@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         String welcomeMessage = messageService.getWelcomeMessage();
-        Collection<Todo> todos = todoService.showAllTodosDescriptions();
+        Collection<Todo> todos = todoService.showAllTasks();
 
         model.addAttribute("welcomeMessage", welcomeMessage);
         model.addAttribute("todoDto", new TodoDto());
