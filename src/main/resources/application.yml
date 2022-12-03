@@ -1,0 +1,13 @@
+server:
+  port: 8089
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_1d1c2a204891776
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 5f4a006c
+    username: b16e850cd8e577

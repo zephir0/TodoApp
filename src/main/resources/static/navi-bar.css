@@ -1,0 +1,63 @@
+/* NAVIGATION TOP-BAR */
+.navi-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    background-color: #2A0944;
+    color: #3FA796;
+    width: 55%;
+    padding: 10px;
+    margin: auto;
+    border: 3px solid #3FA796;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .navi-bar {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-gap: 1em;
+        width: 100%;
+    }
+}
+
+.navi-bar .home-grid {
+    grid-column: 1;
+}
+
+.navi-bar .my-account-grid {
+    grid-column: 2;
+}
+
+.navi-bar .logout-grid {
+    grid-column: 3;
+
+}
+
+.navi-bar .admin-panel {
+    grid-column: 4;
+    border-radius: 5px;
+    padding: 5px;
+    background: #A10035;
+    color: white;
+}
+.navi-bar .admin-panel a {
+    color: white;
+}
+
+.navi-bar a {
+    text-decoration: none;
+    font-size: 35px;
+    color: #3FA796;
+}
+
+.navi-bar a:hover {
+    font-size: 35px;
+    padding: 10px;
+    border-left: 2px solid #3FA796;
+    border-right: 2px solid #3FA796;
+}

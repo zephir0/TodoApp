@@ -1,0 +1,39 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register in TodoApp</title>
+    <link rel="stylesheet" th:href="@{/registration-page.css}"/>
+</head>
+<body>
+<div class="registration-container">
+    <form class="register-form" th:action="@{/register}" th:object="${registrationData}" method="post">
+        <h2>Register</h2>
+        <div class="register-error" th:if="${#fields.hasErrors('login')}">
+            <p>User with that login already exist in database. Please try with another one</p>
+        </div>
+        <div class="register-error" th:if="${#fields.hasErrors('password')}">
+            <p>Passwords are not the same</p>
+        </div>
+        <div class="register-form-parent">
+            <label for="registerLogin">Login</label>
+            <input type="text" th:field="*{login}" name="registerLogin" id="registerLogin">
+        </div>
+        <div class="register-form-parent">
+            <label for="registerPassword">Password</label>
+            <input type="password" th:field="*{password}" name="registerPassword" id="registerPassword">
+        </div>
+        <div class="register-form-parent">
+            <label for="registerPasswordAgain">Confirm your password</label>
+            <input type="password" th:field="*{passwordConfirm}" name="registerPasswordAgain" id="registerPasswordAgain">
+        </div>
+        <div class="registerButton">
+            <button type="submit" class="registerBtn">Register</button>
+        </div>
+    </form>
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

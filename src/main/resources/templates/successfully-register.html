@@ -1,0 +1,18 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Successfully Register</title>
+    <link rel="stylesheet" th:href="@{/successfull-register-styles.css}">
+</head>
+<body>
+<div class="successfull-register-container" th:object="${registrationData}">
+    <h2>Congratulations!</h2>
+    <p>You have successfully registerd</p>
+    <p>Your login details are: </p>
+    <p th:text="*{login}">Your login: </p>
+    <p th:text="*{password}">Your password: </p>
+    <a href="/login">Click here to login</a>
+</div>
+</body>
+</html>

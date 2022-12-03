@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" th:href="@{/navi-bar.css}"/>
+  <link rel="stylesheet" th:href="@{/admin-panel.css}"/>
+  <link rel="stylesheet" th:href="@{/admin-side-bar.css}"/>
+</head>
+<body>
+<div th:replace="fragments/navi-bar :: navi-bar"></div>
+
+<div class="wrapper">
+  <div th:replace="fragments/admin-side-bar :: side-bar"></div>
+
+  <div class="admin">
+
+    <div class="show-all-users">
+      <div class="login-desc">
+        <h3>LOGIN</h3>
+        <div class="user-login" th:each="user : ${allUsers}">
+          <p th:text="${user.login}"></p>
+        </div>
+      </div>
+      <div class="password-desc">
+        <h3>PASSWORD</h3>
+        <div class="user-password" th:each="user : ${allUsers}">
+          <p th:text="${user.password}"></p>
+        </div>
+      </div>
+      <div class="role-desc">
+        <h3>ROLE</h3>
+        <div class="user-role" th:each="user : ${allUsers}">
+          <p th:text="${user.userRole()}"></p>
+        </div>
+      </div>
+      <div class="delete-desc">
+        <h3>DELETE</h3>
+        <div class="delete-task" th:each="user : ${allUsers}">
+          <form class="delete-task-form" th:action="@{/paneladmin/deleteuser/{id}(id=${user.id})}" th:method="post">
+            <button type="submit" class="btn-task-delete">DELETE ACCOUNT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

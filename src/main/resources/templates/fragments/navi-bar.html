@@ -1,0 +1,14 @@
+<nav class="navi-bar" th:fragment="navi-bar" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="home-grid">
+        <a th:href="@{/}">Home</a>
+    </div>
+    <div class="my-account-grid">
+        <a th:href="@{/myaccount}">My Account</a>
+    </div>
+    <div class="logout-grid">
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+    <div class="admin-panel" sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/paneladmin}">Admin Panel</a>
+    </div>
+</nav>

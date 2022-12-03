@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" th:href="@{/navi-bar.css}"/>
+    <link rel="stylesheet" th:href="@{/admin-panel.css}"/>
+    <link rel="stylesheet" th:href="@{/admin-side-bar.css}"/>
+</head>
+<body>
+<div th:replace="fragments/navi-bar :: navi-bar"></div>
+
+<div class="wrapper">
+    <div th:replace="fragments/admin-side-bar :: side-bar"></div>
+    </div>
+</div>
+</body>
+</html>

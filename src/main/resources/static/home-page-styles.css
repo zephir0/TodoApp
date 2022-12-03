@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/*SIDE BAR VVV*/
+body {
+    /* Created with https://www.css-gradient.com */
+    background: #54CED0;
+    background: -webkit-linear-gradient(top left, #54CED0, #C97E47);
+    background: -moz-linear-gradient(top left, #54CED0, #C97E47);
+    background: linear-gradient(to bottom right, #54CED0, #C97E47);
+}
+
+
+
+/*ACCOUNTPAGE , PASSWORDCHANGE AND OTHERS STYLES, TO CHANGE*/
+.container-child {
+    float: left;
+    margin-right: 10px;
+    margin-left: 20px;
+    width: 80%;
+    border: solid 1px;
+    min-height: 600px;
+    display: table-cell;
+    border-radius: 20px;
+    background-color: #7bacde;
+}
+
+
+.container-child .loginDetails {
+    background-color: #b3d3d3;
+    border-radius: 20px;
+    width: 40%;
+    word-break: break-word;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+}
+
+.container-child p {
+    font-size: 25px;
+    text-align: center;
+}
+
+.container-child h2 {
+    font-size: 35px;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+
+.container-child .passwordContainer {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.container-child .passwordContainer input {
+    border-radius: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.container-child .passwordContainer label {
+    margin-bottom: 10px;
+}
+
+
+.container-child button {
+    padding: 10px;
+    width: 185px;
+    background-color: #2083e9;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.container-child button:hover {
+    background-color: #05519f;
+}
+
+.container-child .password-error p {
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    display: block;
+    background-color: red;
+    border: 2px solid red;
+    padding: 5px;
+    margin: auto auto 50px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+.container-child .password-successfully-changed p {
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    display: block;
+    background-color: green;
+    border: 2px solid green;
+    padding: 5px;
+    margin: auto auto 50px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.container-child a {
+    background-color: greenyellow;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 40px;
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.save-edited-task-button {
+    display: inline-block;
+    justify-self: center;
+    width: 100px;
+    margin-right: 20px;
+    padding: 10px;
+    background-color: #65de76;
+    color: white;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    height: 50px;
+}
+
+/*.welcome-Message p {*/
+/*    font-size: 32px;*/
+/*    background-color: #00203FFF;*/
+/*    border-radius: 10px;*/
+/*    padding: 10px 40px;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*}*/
+
+.display-todo-list .show-each-task .task-description .textAreaAfterSpan {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #3FA796;
+}
+
+/* WRAPPER */
+.wrapper {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    gap: 10px
+}
+
+
+
+
+/* WELCOME-MESSAGE TO USER */
+.welcome-Message {
+    background-color: #2A0944;
+    justify-self: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* TODO-LIST ADDING CONTAINER */
+.todo-list-adding-container {
+    display: grid;
+    background-color: #2A0944;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 75%;
+    justify-content: center;
+    justify-self: center;
+    border-radius: 20px;
+    text-align: center;
+    color: #FEC260;
+}
+
+.todo-list-adding-container h2 {
+    font-size: 55px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.todo-list-adding-container p {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+
+.todo-list-adding-container .task-add {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-bottom: 30px;
+}
+
+.todo-list-adding-container .task-add-text-input {
+    border-radius: 20px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #ADEFD1FF;
+    border: none;
+    justify-self: center;
+    width: 70%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.todo-list-adding-container .task-add-submit-button {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #3FA796;
+    border-radius: 20px;
+    width: 50%;
+    color: white;
+    font-weight: bold;
+    justify-self: center;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+/* DISPLAY TODO LIST */
+.display-todo-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 20px;
+    justify-self: center;
+    background-color: #2A0944;
+    border-radius: 20px;
+}
+
+.display-todo-list h2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 45px;
+    color: #FEC260;
+
+}
+
+/* TASK SORTING */
+.display-todo-list .sort-tasks {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.display-todo-list .sort-tasks select {
+    background-color: #3FA796;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 210px;
+    border: none;
+    color: #2A0944;
+    text-align: center;
+    font-size: 20px;
+    padding: 2px;
+}
+
+.display-todo-list .sort-tasks input {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #3FA796;
+    color: #2A0944;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+}
+
+.display-todo-list h2 {
+    justify-self: center;
+}
+
+/* TASKS DISPLAY */
+.display-todo-list .show-each-task {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-auto-flow: column;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+/*TO BE CHANGED...*/
+.display-todo-list .show-each-task .task-description {
+    display: grid;
+    color: white;
+    margin: auto;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+
+.display-todo-list .show-each-task .task-description span {
+    display: block;
+    max-width: 500px;
+    font-size: 30px;
+    word-wrap: break-word;
+    text-align: left;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #3FA796;
+}
+
+.display-todo-list .show-each-task .delete-task {
+    margin-right: 40px;
+    align-self: center;
+    justify-self: right;
+}
+
+
+.display-todo-list .show-each-task .delete-task button {
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    color: #FEC260;
+    background-color: #A10035;
+    border: none;
+    padding: 20px;
+    font-size: 25px;
+}

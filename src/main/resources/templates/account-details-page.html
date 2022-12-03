@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="fragments/header :: head">
+
+</head>
+<body>
+<div class="container">
+    <div layout:fragment="content"></div>
+    <div th:replace="fragments/navi-bar :: navi-bar"></div>
+    <div th:replace="fragments/side-bar :: side-bar"></div>
+    <div class="container-child">
+        <h2>Your account details</h2>
+        <div class="loginDetails">
+            <p>Login: <span th:text="${loginName}"></span> </p>
+        </div>
+        <div class="loginDetails">
+            <p>Password: <span th:text="${passwordHash}"></span> </p>
+        </div>
+    </div>
+
+</div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>

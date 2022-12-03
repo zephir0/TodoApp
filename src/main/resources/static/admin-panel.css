@@ -1,0 +1,78 @@
+.wrapper {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.admin {
+    margin-left: 20px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.show-all-users {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    background-color: #2A0944;
+    border-radius: 20px;
+    padding: 10px;
+    border: 8px solid #3FA796;
+}
+
+.admin .show-all-users h3 {
+
+    background-color: #072233;
+    color: #C97E47;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.login-desc, .password-desc, .role-desc, .delete-desc {
+    display: grid;
+    grid-auto-flow: row;
+    color: white;
+    grid-template-rows: 100px;
+}
+
+.delete-desc {
+    margin-right: 20px;
+    grid-column: 4;
+}
+
+.delete-desc .delete-task {
+    display: grid;
+}
+
+.delete-desc .delete-task .delete-task-form {
+    align-self: center;
+}
+
+.delete-desc .delete-task .delete-task-form .btn-task-delete {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #A10035;
+    color: #C97E47;
+    font-weight: bold;
+}
+
+.login-desc {
+    grid-column: 1;
+}
+
+.password-desc {
+    grid-column: 2;
+
+}
+
+.role-desc {
+    grid-column: 3;
+}
+
+.user-login, .user-password, .user-role, .delete-task {
+    border-bottom: 5px solid #072233;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="fragments/header :: head">
+
+</head>
+<body>
+<div class="container">
+    <div layout:fragment="content"></div>
+    <div th:replace="fragments/navi-bar :: navi-bar"></div>
+    <div th:replace="fragments/side-bar :: side-bar"></div>
+
+    <div class="container-child">
+        <form th:action="@{/myaccount/deleteaccount}" th:method="post">
+            <h2>Do you really want to delete your account, permanently?</h2>
+            <button type="submit">YES</button>
+            <a th:href="@{/}">No, back to home page</a>
+        </form>
+
+    </div>
+</div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>

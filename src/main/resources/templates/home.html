@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header :: head">
+</head>
+<body>
+<script id="template" type="text/template">
+        <button class="save-edited-task-button">Save</button>
+</script>
+<script type="text/javascript" src="/scripts.js"></script>
+<div class="wrapper">
+    <div th:replace="fragments/navi-bar :: navi-bar"></div>
+    <div class="welcome-Message">
+        <p th:text="${welcomeMessage}"></p>
+    </div>
+
+    <div id="todo-list-add-main-container" class="todo-list-adding-container" th:object="${todoDto}">
+        <h2>Todo List</h2>
+
+        <form class="task-add" th:action="@{/add}" method="post">
+            <p>Add task to list</p>
+            <div class="task-add-text-input">
+                <input class="task-add-text-input" type="text" th:field="*{description}" id="myInput"
+                       placeholder="Title...">
+            </div>
+            <div class="task-add-submit-button">
+                <button type="submit" class="task-add-submit-button">Add task</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="display-todo-list">
+        <div class="sort-tasks">
+            <form method="get" id="sort-form" th:action="@{/}" role="search">
+                <select id="sorting" name="sorting">
+                    <option value="from newest">Sort from oldest</option>
+                    <option value="from oldest">Sort from newest</option>
+                </select>
+                <input type="submit">
+            </form>
+        </div>
+
+        <h2>Your tasks: </h2>
+
+        <div class="show-each-task" th:each="task : ${todoList}">
+                <form class="task-description" th:action="@{/edit/{id}(id=${task.id})}" th:method="POST">
+                    <span class="TaskDescription" th:text="${task.description}"></span>
+                </form>
+            <div class="delete-task">
+                <form th:action="@{/delete/{id}(id=${task.id})}" th:method="delete">
+                    <button type="submit" class="btn-task-delete">Finish</button>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>
